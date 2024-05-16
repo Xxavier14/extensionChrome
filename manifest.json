@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Cambio color Youtube",
-  "description": "Cambia el color del body de Youtube",
+  "name": "Simple Note",
+  "description": "Notas Simples.",
   "version": "1.0",
   "action": {
     "default_popup": "hello.html",
