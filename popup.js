@@ -34,4 +34,12 @@ document.addEventListener('DOMContentLoaded', function() {
       timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     }, 1000);
   }
+  // Escucha el mensaje del background.js
+  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.action === 'alarmFired') {
+      const audio = new Audio(chrome.runtime.getURL('alarm.mp3'));
+      audio.play();
+      alert('¡El tiempo ha terminado!');
+    }
+  });
 });

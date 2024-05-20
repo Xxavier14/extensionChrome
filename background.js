@@ -8,9 +8,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === 'timerAlarm') {
-    const audio = new Audio(chrome.runtime.getURL('alarm.mp3'));
-    audio.play();
-    alert('¡El tiempo ha terminado!');
+    chrome.runtime.sendMessage({ action: 'alarmFired' });
     chrome.storage.local.remove('endTime');
   }
 });
